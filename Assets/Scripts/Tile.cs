@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int xIndex;
+    public int yIndex;
+
+    Board m_board;
+
+    public void Init(int x, int y, Board board)
     {
-        
+        xIndex = x;
+        yIndex = y;
+        m_board = board;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseEnter()
     {
-        
+        if (m_board == null)
+            return;
+
+        m_board.DragToTile(this);
+    }
+
+    void OnMouseDown()
+    {
+        if (m_board == null)
+            return;
+
+        m_board.ClickTile(this);
+    }
+
+    void OnMouseUp()
+    {
+        if (m_board == null)
+            return;
+
+        m_board.ReleaseTile();
     }
 }

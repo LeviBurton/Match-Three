@@ -176,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419415620
 GameObject:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &419415622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ RectTransform:
   m_Children:
   - {fileID: 1194833525}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -357,7 +357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849510053
 GameObject:
@@ -390,9 +390,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 7
   height: 9
+  borderSize: 3
   tilePrefab: {fileID: 6591129194001978519, guid: 9e214e44002c48a4aac68bc01aa95c96,
     type: 3}
-  borderSize: 3
+  gamePiecePrefabs:
+  - {fileID: 4594454032181336920, guid: 8121ff9d93e4cc142a00d664fe195cdb, type: 3}
+  - {fileID: 1914642824469477168, guid: 1706e6305177c604485664a4ef895456, type: 3}
+  - {fileID: 5610392853602065022, guid: db7ea145e7b0abd428914c3babc83a36, type: 3}
+  - {fileID: 1128600633414551512, guid: e00b7ba488876454cb16b07bf08bae90, type: 3}
+  - {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b, type: 3}
+  swapTime: 0.2
 --- !u!4 &849510055
 Transform:
   m_ObjectHideFlags: 0
@@ -405,7 +412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1194833524
 GameObject:
@@ -457,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09411766, g: 0.6509804, b: 0.5921569, a: 1}
+  m_Color: {r: 0.17254902, g: 0.09019608, b: 0.2784314, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
