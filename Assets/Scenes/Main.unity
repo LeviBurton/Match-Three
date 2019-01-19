@@ -400,6 +400,7 @@ MonoBehaviour:
   - {fileID: 1128600633414551512, guid: e00b7ba488876454cb16b07bf08bae90, type: 3}
   - {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b, type: 3}
   swapTime: 0.2
+  collapseTime: 0.1
 --- !u!4 &849510055
 Transform:
   m_ObjectHideFlags: 0
