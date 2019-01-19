@@ -14,17 +14,16 @@ public class Board : MonoBehaviour
     [InlineEditor(InlineEditorModes.LargePreview)]
     public GameObject tileNormalPrefab;
 
-    [InlineEditor(InlineEditorModes.LargePreview)]
-    public GameObject tileObstaclePrefab;
+    //[InlineEditor(InlineEditorModes.LargePreview)]
+    //public GameObject tileObstaclePrefab;
 
     [InlineEditor(InlineEditorModes.LargePreview)]
     public GameObject[] gamePiecePrefabs;
-
     public StartingTile[] startingTiles;
 
-    Tile[,] m_allTiles;
+    ParticleManager m_particleManager;
     GamePiece[,] m_allGamePieces;
-
+    Tile[,] m_allTiles;
     Tile m_clickedTile;
     Tile m_targetTile;
 
@@ -47,6 +46,8 @@ public class Board : MonoBehaviour
         SetupTiles();
         SetupCamera();
         FillBoard(10, 0.5f);
+
+        m_particleManager = GameObject.FindWithTag("ParticleManager").GetComponent<ParticleManager>();
     }
 
     void MakeTile(GameObject prefab, int x, int y, int z = 0)
@@ -191,8 +192,8 @@ public class Board : MonoBehaviour
 
     bool HasMatchOnFill(int x, int y, int minLength = 3)
     {
-        List<GamePiece> leftMatches = FindMatches(x, y, new Vector2(-1, 0), minLength);
-        List<GamePiece> downwardMatches = FindMatches(x, y, new Vector2(0, -1), minLength);
+        List<GamePiece> leftMatches = FindMatches(x, y, Vector2.left, minLength);
+        List<GamePiece> downwardMatches = FindMatches(x, y, Vector2.right, minLength);
 
         if (leftMatches == null)
         {
@@ -357,8 +358,8 @@ public class Board : MonoBehaviour
 
     List<GamePiece> FindVerticalMatches(int startX, int startY, int minLength = 3)
     {
-        List<GamePiece> upwardMatches = FindMatches(startX, startY, new Vector2(0, 1), 2);
-        List<GamePiece> downwardMatches = FindMatches(startX, startY, new Vector2(0, -1), 2);
+        List<GamePiece> upwardMatches = FindMatches(startX, startY, Vector2.up, 2);
+        List<GamePiece> downwardMatches = FindMatches(startX, startY, Vector2.down, 2);
 
         if (upwardMatches == null)
         {
@@ -378,8 +379,8 @@ public class Board : MonoBehaviour
 
     List<GamePiece> FindHorizontalMatches(int startX, int startY, int minLength = 3)
     {
-        List<GamePiece> rightMatches = FindMatches(startX, startY, new Vector2(1, 0), 2);
-        List<GamePiece> leftMatches = FindMatches(startX, startY, new Vector2(-1, 0), 2);
+        List<GamePiece> rightMatches = FindMatches(startX, startY, Vector2.left, 2);
+        List<GamePiece> leftMatches = FindMatches(startX, startY, Vector2.right, 2);
 
         if (rightMatches == null)
         {
