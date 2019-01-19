@@ -388,9 +388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2d8d03a1b75b64da15453513b1b4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 9
+  width: 7
   height: 9
   borderSize: 3
+  swapTime: 0.2
+  collapseTime: 0.1
   tileNormalPrefab: {fileID: 6591129194001978519, guid: 9e214e44002c48a4aac68bc01aa95c96,
     type: 3}
   tileObstaclePrefab: {fileID: 6591129194001978519, guid: e41e85a1cff6edd498534db26aa4b158,
@@ -401,7 +403,6 @@ MonoBehaviour:
   - {fileID: 5610392853602065022, guid: db7ea145e7b0abd428914c3babc83a36, type: 3}
   - {fileID: 1128600633414551512, guid: e00b7ba488876454cb16b07bf08bae90, type: 3}
   - {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b, type: 3}
-  swapTime: 0.2
   startingTiles: []
 --- !u!4 &849510055
 Transform:
