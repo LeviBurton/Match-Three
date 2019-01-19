@@ -400,8 +400,8 @@ public class Board : MonoBehaviour
 
     List<GamePiece> FindHorizontalMatches(int startX, int startY, int minLength = 3)
     {
-        List<GamePiece> rightMatches = FindMatches(startX, startY, Vector2.left, 2);
-        List<GamePiece> leftMatches = FindMatches(startX, startY, Vector2.right, 2);
+        List<GamePiece> rightMatches = FindMatches(startX, startY, Vector2.right, 2);
+        List<GamePiece> leftMatches = FindMatches(startX, startY, Vector2.left, 2);
 
         if (rightMatches == null)
         {
