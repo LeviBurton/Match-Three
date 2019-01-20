@@ -402,26 +402,6 @@ MonoBehaviour:
   - {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b, type: 3}
   - {fileID: 2635674465370768009, guid: bceb058b056d3cd49ae0797fe5f1e7be, type: 3}
   startingTiles:
-  - prefab: {fileID: 6591129194001978519, guid: 62ed33023a5abb0438becc36b80a56f2,
-      type: 3}
-    x: 2
-    y: 2
-    z: 0
-  - prefab: {fileID: 6591129194001978519, guid: 62ed33023a5abb0438becc36b80a56f2,
-      type: 3}
-    x: 2
-    y: 3
-    z: 0
-  - prefab: {fileID: 6591129194001978519, guid: 62ed33023a5abb0438becc36b80a56f2,
-      type: 3}
-    x: 2
-    y: 4
-    z: 0
-  - prefab: {fileID: 6591129194001978519, guid: 62ed33023a5abb0438becc36b80a56f2,
-      type: 3}
-    x: 2
-    y: 5
-    z: 0
   - prefab: {fileID: 6591129194001978519, guid: ebcc165c2e08cf643b1c9610a218aa29,
       type: 3}
     x: 4
@@ -435,19 +415,45 @@ MonoBehaviour:
   startingGamePieces:
   - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
       type: 3}
-    x: 1
-    y: 0
+    x: 3
+    y: 3
     z: 0
   - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
       type: 3}
-    x: 1
-    y: 1
+    x: 3
+    y: 4
     z: 0
-  - prefab: {fileID: 8115159395259231147, guid: 2371c3ed35136a14b9fb7c83b1d4d1d3,
+  - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
       type: 3}
-    x: 2
-    y: 2
+    x: 3
+    y: 6
     z: 0
+  - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
+      type: 3}
+    x: 4
+    y: 5
+    z: 0
+  - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
+      type: 3}
+    x: 5
+    y: 4
+    z: 0
+  - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
+      type: 3}
+    x: 6
+    y: 4
+    z: 0
+  - prefab: {fileID: 1069220525042266939, guid: 91eea4fd7b82ed3409006b806685a39b,
+      type: 3}
+    x: 5
+    y: 5
+    z: 0
+  adjacentBombPrefab: {fileID: 8115159395259231147, guid: 2371c3ed35136a14b9fb7c83b1d4d1d3,
+    type: 3}
+  columnBombPrefab: {fileID: 8115159395259231147, guid: 4e692f768a9728d439d93ed0711bd05c,
+    type: 3}
+  rowBombPrefab: {fileID: 8115159395259231147, guid: 2f7e5bbb7d352844cac52aa78f9277c9,
+    type: 3}
 --- !u!4 &849510055
 Transform:
   m_ObjectHideFlags: 0
