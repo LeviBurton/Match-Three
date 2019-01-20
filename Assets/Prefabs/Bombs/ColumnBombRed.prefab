@@ -68,7 +68,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13b37c97c3f7e9141a7b04aa2ad4901b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fce423fd9b2b2c419a68407f9128d16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8115159395259231148}
   - component: {fileID: 2894095022873875494}
   m_Layer: 0
-  m_Name: AdjacentBombBlue
+  m_Name: ColumnBombRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ffebe9975c155d24d93a5feb6aefbd93, type: 3}
-  m_Color: {r: 0, g: 0.2884617, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.2643776, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -176,8 +176,8 @@ MonoBehaviour:
   xIndex: 0
   yIndex: 0
   interpolation: 4
-  matchValue: 2
-  bombType: 3
+  matchValue: 7
+  bombType: 1
 --- !u!1001 &1081138018294718946
 PrefabInstance:
   m_ObjectHideFlags: 0

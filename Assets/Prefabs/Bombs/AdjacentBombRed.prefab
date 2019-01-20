@@ -176,7 +176,7 @@ MonoBehaviour:
   xIndex: 0
   yIndex: 0
   interpolation: 4
-  matchValue: 6
+  matchValue: 7
   bombType: 3
 --- !u!1001 &1081138018294718946
 PrefabInstance:
