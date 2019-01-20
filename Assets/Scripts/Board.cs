@@ -327,10 +327,7 @@ public class Board : MonoBehaviour
                         targetBombPiece.ChangeColor(clickedPiece);
                     }
 
-
-
                     ClearAndRefillBoard(clickedPieceMatches.Union(targetPieceMatches).ToList());
-
                 }
             }
         }
@@ -725,10 +722,12 @@ public class Board : MonoBehaviour
 
         while (!isFinished)
         {
-            // TODO: find pieces affected by bomb
             List<GamePiece> bombedPieces = GetBombedPieces(gamePieces);
-            gamePieces = gamePieces.Union(bombedPieces).ToList();
-
+            gamePieces = gamePieces.Union(bombedPieces).Where(x => x != null).ToList();
+            
+            bombedPieces = GetBombedPieces(gamePieces);
+            gamePieces = gamePieces.Union(bombedPieces).Where(x => x != null).ToList();
+        
             ClearPieceAt(gamePieces);
             BreakTileAt(gamePieces);
 
