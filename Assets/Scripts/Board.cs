@@ -311,7 +311,9 @@ public class Board : MonoBehaviour
                 else
                 {
                     yield return new WaitForSeconds(swapTime);
+
                     Vector2 swapDirection = new Vector2(targetTile.xIndex - clickedTile.xIndex, targetTile.yIndex - clickedTile.yIndex);
+
                     m_clickedTileBomb = DropBomb(clickedTile.xIndex, clickedTile.yIndex, swapDirection, clickedPieceMatches);
                     m_targetTileBomb = DropBomb(targetTile.xIndex, targetTile.yIndex, swapDirection, targetPieceMatches);
 
@@ -577,16 +579,24 @@ public class Board : MonoBehaviour
         }
     }
 
-    void ClearPieceAt(List<GamePiece> gamePieces)
+    void ClearPieceAt(List<GamePiece> gamePieces, List<GamePiece> bombedPieces)
     {
         foreach (GamePiece piece in gamePieces)
         {
             if (piece != null)
             {
                 ClearPieceAt(piece.xIndex, piece.yIndex);
+
                 if (m_particleManager != null)
                 {
-                    m_particleManager.ClearFXPieceAt(piece.xIndex, piece.yIndex);
+                    if (bombedPieces.Contains(piece))
+                    {
+                        m_particleManager.BombFXAt(piece.xIndex, piece.yIndex);
+                    }
+                    else
+                    {
+                        m_particleManager.ClearPieceFXAt(piece.xIndex, piece.yIndex);
+                    }
                 }
             }
         }
@@ -728,7 +738,7 @@ public class Board : MonoBehaviour
             bombedPieces = GetBombedPieces(gamePieces);
             gamePieces = gamePieces.Union(bombedPieces).Where(x => x != null).ToList();
         
-            ClearPieceAt(gamePieces);
+            ClearPieceAt(gamePieces, bombedPieces);
             BreakTileAt(gamePieces);
 
             if (m_clickedTileBomb != null)
@@ -872,7 +882,6 @@ public class Board : MonoBehaviour
                 }
 
                 allPiecesToClear = allPiecesToClear.Union(piecesToClear).ToList();
-
             }
         }
 
