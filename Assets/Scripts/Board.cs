@@ -13,6 +13,9 @@ public class Board : MonoBehaviour
     public float swapTime = 0.5f;
     public int fillYOffset = 10;
     public float fillMoveTime = 0.5f;
+    public int maxCollectibles = 3;
+    public int collectibleCount = 0;
+    [Range(0, 1)] public float chanceForCollectible = 0.1f;
 
     [InlineEditor(InlineEditorModes.SmallPreview)]
     [Required] public GameObject tileNormalPrefab;
@@ -29,9 +32,6 @@ public class Board : MonoBehaviour
     [InlineEditor(InlineEditorModes.SmallPreview)]
     [Required] public GameObject colorBombPrefab;
 
-    public int maxCollectibles = 3;
-    public int collectibleCount = 0;
-    [Range(0, 1)] public float chanceForCollectible = 0.1f;
     public GameObject[] collectiblePrefabs;
 
     //[InlineEditor(InlineEditorModes.LargePreview)]
