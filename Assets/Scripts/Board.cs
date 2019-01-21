@@ -414,6 +414,12 @@ public class Board : MonoBehaviour
                         }
                     }
 
+                    if (GameManager.Instance != null)
+                    {
+                        GameManager.Instance.movesLeft--;
+                        GameManager.Instance.UpdateMoves();
+
+                    }
                     ClearAndRefillBoard(clickedPieceMatches.Union(targetPieceMatches).ToList().Union(colorMatches).ToList());
                 }
             }

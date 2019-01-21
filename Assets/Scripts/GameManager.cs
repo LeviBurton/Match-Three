@@ -5,17 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public int movesLeft = 30;
     public int scoreGoal = 10000;
     public ScreenFader screenFader;
     public TextMeshProUGUI levelNameText;
+    public TextMeshProUGUI movesLeftText;
+    public MessageWindow messageWindow;
+
+    public Sprite loseIcon;
+    public Sprite winIcon;
+    public Sprite goalIcon;
 
     Board m_board;
     bool m_isReadyToBegin = false;
     bool m_isGameOver = false;
     bool m_isWinner = false;
+    bool m_isReadyToReload = false;
 
     void Start()
     {
@@ -27,7 +34,16 @@ public class GameManager : MonoBehaviour
             levelNameText.text = scene.name;
         }
 
+        UpdateMoves();
         StartCoroutine("ExecuteGameLoop");
+    }
+
+    public void UpdateMoves()
+    {
+        if (movesLeftText != null)
+        {
+            movesLeftText.text = movesLeft.ToString();
+        }
     }
 
     IEnumerator ExecuteGameLoop()
@@ -37,13 +53,22 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine("EndGameRoutine");
     }
 
+    public void BeginGame()
+    {
+        m_isReadyToBegin = true;
+    }
+
     IEnumerator StartGameRoutine()
     {
+        if (messageWindow != null)
+        {
+            messageWindow.GetComponent<RectXformMover>().MoveOn();
+            messageWindow.ShowMessage(goalIcon, "score goal\n" + scoreGoal.ToString(), "start");
+        }
+
         while (!m_isReadyToBegin)
         {
             yield return null;
-            yield return new WaitForSeconds(2f);
-            m_isReadyToBegin = true;
         }
 
         if (screenFader != null)
@@ -61,24 +86,48 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PlayGameRoutine()
     {
-
         while (!m_isGameOver)
         {
+            if (movesLeft == 0)
+            {
+                m_isGameOver = true;
+                m_isWinner = false;
+            }
+
             yield return null;
         }
     }
 
     IEnumerator EndGameRoutine()
     {
+        m_isReadyToReload = false;
+
+        if (screenFader != null)
+        {
+            screenFader.FadeOn();
+        }
+
         if (m_isWinner)
         {
-            Debug.Log("You win");
+            messageWindow.GetComponent<RectXformMover>().MoveOn();
+            messageWindow.ShowMessage(winIcon, "You WIN!", "OK");
         }
         else
         {
-            Debug.Log("You lose");
+            messageWindow.GetComponent<RectXformMover>().MoveOn();
+            messageWindow.ShowMessage(winIcon, "You LOSE!", "OK");
         }
 
-        yield return null;
+        while (!m_isReadyToReload)
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReloadScene()
+    {
+        m_isReadyToReload = true;
     }
 }
