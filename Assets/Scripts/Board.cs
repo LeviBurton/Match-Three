@@ -75,15 +75,15 @@ public class Board : MonoBehaviour
         m_allTiles = new Tile[width, height];
         m_allGamePieces = new GamePiece[width, height];
         m_particleManager = GameObject.FindWithTag("ParticleManager").GetComponent<ParticleManager>();
+    }
 
+    public void SetupBoard()
+    {
         SetupTiles();
         SetupGamePieces();
-
         var startingCollectibles = FindAllCollectibles();
         collectibleCount = startingCollectibles.Count;
-
         SetupCamera();
-
         FillBoard(fillYOffset, fillMoveTime);
     }
 
